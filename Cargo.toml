@@ -1,0 +1,41 @@
+[package]
+name = "agent-router"
+version = "0.1.0"
+edition = "2021"
+authors = ["Sovereign Shovels <github.com/sovereign-shovels>"]
+license = "Apache-2.0"
+description = "Smart model router for AI agents — route every prompt to the cheapest model that can handle it."
+repository = "https://github.com/sovereign-shovels/agent-router"
+
+[dependencies]
+tokio = { version = "1", features = ["full"] }
+reqwest = { version = "0.12", features = ["json", "stream"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+toml = "0.8"
+axum = "0.7"
+axum-server = "0.7"
+hyper = { version = "1", features = ["full"] }
+hyper-util = "0.1"
+http-body-util = "0.1"
+bytes = "1"
+futures = "0.3"
+regex = "1"
+rusqlite = { version = "0.32", features = ["bundled"] }
+clap = { version = "4", features = ["derive"] }
+tower = "0.4"
+tower-http = { version = "0.5", features = ["trace", "cors"] }
+tracing = "0.1"
+tracing-subscriber = "0.3"
+chrono = "0.4"
+dirs = "5"
+tokio-stream = "0.1"
+
+[dev-dependencies]
+tokio-test = "0.4"
+mockito = "1"
+
+[profile.release]
+opt-level = 3
+lto = true
+strip = true
